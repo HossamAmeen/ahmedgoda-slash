@@ -17,4 +17,19 @@ class HomeController extends Controller
         $data['history_working'] = Article::orderBy('id', 'DESC')->where('type', 'history_working')->get()->take(6);
         return $this->APIResponse($data, null, 200);
     }
+    public function articles($id=null)
+    {
+        if(isset($id))
+        {
+           
+            $articles = Article::orderBy('id', 'DESC')->where("id", $id)->first();
+        }
+        else
+        {
+            $articles = Article::orderBy('id', 'DESC')->where('type', request('type'))->get();
+        }
+           
+        return $this->APIResponse($articles, null, 200);
+
+    }
 }

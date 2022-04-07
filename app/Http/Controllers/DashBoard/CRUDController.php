@@ -67,7 +67,7 @@ class CRUDController extends Controller
     public function update($id , Request $request){
         $requestArray = $request->all();
         $row = $this->model->FindOrFail($id);
-        $requestArray['user_id'] = auth('api')->user()->id;
+        // $requestArray['user_id'] = auth('api')->user()->id;
         if($request->hasFile('image_file'))
         { 
             $fileName = $this->storeFile($request->image_file , $this->getFolderNameFromModel());

@@ -25,4 +25,4 @@ Route::prefix('admin')->namespace('DashBoard')->group(function(){
 });
 
 Route::get('index' , "HomeController@index");
-Route::resource('admins' , "AdminController");
+Route::get('articles/{article_id?}' , "HomeController@articles");
