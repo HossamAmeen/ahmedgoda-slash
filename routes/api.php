@@ -15,6 +15,7 @@ Route::prefix('admin')->namespace('DashBoard')->group(function(){
     });
     Route::middleware('cors')->group(function () {
         Route::resource('admins' , "AdminController");
+        Route::put('configrations', 'ConfigrationController@update');
         Route::resource('articles' , "ArticleController");
         Route::resource('services' , "ServiceController");
         Route::resource('contact-us' , "ContactUsController");
@@ -27,3 +28,4 @@ Route::prefix('admin')->namespace('DashBoard')->group(function(){
 Route::get('index' , "HomeController@index");
 Route::get('articles/{article_id?}' , "HomeController@articles");
 Route::post('contact-us' , "DashBoard\ContactUsController@store");
+Route::get('configrations', 'HomeController@configrations');

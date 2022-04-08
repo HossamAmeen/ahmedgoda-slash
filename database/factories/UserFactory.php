@@ -23,8 +23,6 @@ $factory->define(App\Models\Configration::class, function (Faker $faker) {
         'title' =>  " ",
         'description' => " ",
         'en_description' => $faker->text,
-        'home_description' => " ",
-        'en_home_description' => $faker->text,
         'phone' => "01010079795",
         'phone2' => "01010079795",
         'whatsapp' => "01010079798",
