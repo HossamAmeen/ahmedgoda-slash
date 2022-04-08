@@ -26,3 +26,4 @@ Route::prefix('admin')->namespace('DashBoard')->group(function(){
 
 Route::get('index' , "HomeController@index");
 Route::get('articles/{article_id?}' , "HomeController@articles");
+Route::post('contact-us' , "DashBoard\ContactUsController@store");

@@ -39,7 +39,6 @@ class CRUDController extends Controller
         }
        
         $requestArray = $request->all();
-        if(auth('api')->user() !== null)
         // $requestArray['user_id'] = auth('api')->user()->id;
         
         if($request->hasFile('image_file'))
