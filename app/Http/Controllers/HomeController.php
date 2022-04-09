@@ -12,9 +12,9 @@ class HomeController extends Controller
 
     public function index() 
     {
-        $data['articles'] = Article::orderBy('id', 'DESC')->where('type', 'article')->get()->take(6);
-        $data['services'] = Article::orderBy('id', 'DESC')->where('type', 'service')->get()->take(6);
-        $data['history_working'] = Article::orderBy('id', 'DESC')->where('type', 'history_working')->get()->take(6);
+        $data['articles'] = Article::orderBy('id', 'DESC')->where('type', 'article')->get(['id','title','type','description','image'])->take(6);
+        $data['services'] = Article::orderBy('id', 'DESC')->where('type', 'service')->get(['id','title','type','description','image'])->take(6);
+        $data['history_working'] = Article::orderBy('id', 'DESC')->where('type', 'history_working')->get(['id','title','type','description','image'])->take(6);
         $data['conifgrations'] = Configration::find(1);
         return $this->APIResponse($data, null, 200);
     }
