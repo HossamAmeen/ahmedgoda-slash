@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
             UserSeed::class,
         ]);
       factory('App\Models\Configration',1)->create();
-      factory('App\Models\Article',20)->create();
-      factory('App\Models\Service',4)->create();
+      factory('App\Models\Article',30)->create();
     }
 }

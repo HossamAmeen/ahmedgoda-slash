@@ -45,15 +45,9 @@ $factory->define(App\Models\Article::class, function (Faker $faker) {
         'description' => "",
         'en_description' => $faker->text ,
         'is_old_work' => rand(1,0),
+        'type' => $faker->randomElement(['service','article','history_work']),
         'user_id' =>1 ,
     ];
 });
-$factory->define(App\Models\Service::class, function (Faker $faker) {
 
-    return [
-        'name' => "تقويم الاسنان ",
-        'description' => "تقويم الاسنان في اسرع وقت",
-        'user_id' =>1 ,
-    ];
-});
 
