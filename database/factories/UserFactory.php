@@ -45,7 +45,7 @@ $factory->define(App\Models\Article::class, function (Faker $faker) {
         'description' => "",
         'en_description' => $faker->text ,
         'is_old_work' => rand(1,0),
-        'type' => $faker->randomElement(['service','article','history_work']),
+        'type' => $faker->randomElement(['service','article','history_working']),
         'user_id' =>1 ,
     ];
 });
