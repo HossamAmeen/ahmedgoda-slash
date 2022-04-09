@@ -15,7 +15,7 @@ Route::prefix('admin')->namespace('DashBoard')->group(function(){
     });
     Route::middleware('cors')->group(function () {
         Route::resource('admins' , "AdminController");
-        Route::put('configrations', 'ConfigrationController@update');
+        Route::resource('configrations', 'ConfigrationController');
         Route::resource('articles' , "ArticleController");
         Route::resource('services' , "ServiceController");
         Route::resource('contact-us' , "ContactUsController");
