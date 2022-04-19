@@ -20,6 +20,8 @@ Route::prefix('admin')->namespace('DashBoard')->group(function(){
         Route::resource('services' , "ServiceController");
         Route::resource('contact-us' , "ContactUsController");
         Route::post('upload-file', 'UploadFileController@uploadFile');
+        Route::get('account' , "ConfigrationController@getAccount");
+        Route::put('account' , "ConfigrationController@updateAccount");
     });
 
    

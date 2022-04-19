@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon, File;
 use  Auth;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\{Validator,Hash};
 class CRUDController extends Controller
 {
     use APIResponseTrait;
@@ -40,7 +40,8 @@ class CRUDController extends Controller
        
         $requestArray = $request->all();
         // $requestArray['user_id'] = auth('api')->user()->id;
-        
+        if(isset($requestArray['password']) )
+            $requestArray['password'] =  Hash::make($requestArray['password']);
         if($request->hasFile('image_file'))
         { 
             $fileName = $this->storeFile($request->image_file , $this->getFolderNameFromModel());
