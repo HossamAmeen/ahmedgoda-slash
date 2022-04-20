@@ -14,14 +14,19 @@ Route::prefix('admin')->namespace('DashBoard')->group(function(){
         Route::post('/logout', 'APIAuthController@logout')->name('admin.logout');
     });
     Route::middleware('cors')->group(function () {
-        Route::resource('admins' , "AdminController");
-        Route::resource('configrations', 'ConfigrationController');
-        Route::resource('articles' , "ArticleController");
-        Route::resource('services' , "ServiceController");
-        Route::resource('contact-us' , "ContactUsController");
-        Route::post('upload-file', 'UploadFileController@uploadFile');
-        Route::get('account' , "ConfigrationController@getAccount");
-        Route::put('account' , "ConfigrationController@updateAccount");
+
+        Route::middleware('checkLogin')->group(function () {
+            Route::post('upload-file', 'UploadFileController@uploadFile');
+            Route::get('account' , "ConfigrationController@getAccount");
+            Route::put('account' , "ConfigrationController@updateAccount");
+            Route::resource('admins' , "AdminController");
+            Route::resource('configrations', 'ConfigrationController');
+            Route::resource('articles' , "ArticleController");
+            Route::resource('contact-us' , "ContactUsController");
+        });
+     
+       
+       
     });
 
    
