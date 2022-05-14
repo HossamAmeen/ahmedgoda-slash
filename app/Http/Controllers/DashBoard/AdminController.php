@@ -22,7 +22,7 @@ class AdminController extends CRUDController
         }
        
         $requestArray = $request->all();
-        // $requestArray['user_id'] = auth('api')->user()->id;
+        $requestArray['user_id'] = auth('api')->user()->id;
         $requestArray['role'] = 1;
         if(isset($requestArray['password']) )
             $requestArray['password'] =  Hash::make($requestArray['password']);
@@ -42,7 +42,7 @@ class AdminController extends CRUDController
         if(isset($requestArray['password']) )
             $requestArray['password'] =  Hash::make($requestArray['password']);
         $row = $this->model->FindOrFail($id);
-        // $requestArray['user_id'] = auth('api')->user()->id;
+        $requestArray['user_id'] = auth('api')->user()->id;
         if($request->hasFile('image_file'))
         { 
             $fileName = $this->storeFile($request->image_file , $this->getFolderNameFromModel());
